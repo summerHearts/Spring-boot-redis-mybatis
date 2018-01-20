@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.of.dfjr.mapper.ProcessingRecordMapper">
+  <resultMap id="BaseResultMap" type="com.of.dfjr.pojo.ProcessingRecord">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="processingrecord_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="personnel_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="complaint_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="processingcompletion_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="emergency_degree" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="processing_state" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="forwardprocessing_department" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="processing_department" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="processing_record" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="feedback_time" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="creater" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="modifier" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="modify_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="version" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="process_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="appoint_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="department_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, processingrecord_id, personnel_id, complaint_id, processingcompletion_time, emergency_degree, 
+    processing_state, forwardprocessing_department, processing_department, processing_record, 
+    feedback_time, creater, create_time, modifier, modify_time, version, process_name, 
+    appoint_time, department_type
+  </sql>
+  <insert id="insertSelective" parameterType="com.of.dfjr.pojo.ProcessingRecord">
+    insert into processing_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="processingrecordId != null">
+        processingrecord_id,
+      </if>
+      <if test="personnelId != null">
+        personnel_id,
+      </if>
+      <if test="complaintId != null">
+        complaint_id,
+      </if>
+      <if test="processingcompletionTime != null">
+        processingcompletion_time,
+      </if>
+      <if test="emergencyDegree != null">
+        emergency_degree,
+      </if>
+      <if test="processingState != null">
+        processing_state,
+      </if>
+      <if test="forwardprocessingDepartment != null">
+        forwardprocessing_department,
+      </if>
+      <if test="processingDepartment != null">
+        processing_department,
+      </if>
+      <if test="processingRecord != null">
+        processing_record,
+      </if>
+      <if test="feedbackTime != null">
+        feedback_time,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="processName != null">
+        process_name,
+      </if>
+      <if test="appointTime != null">
+        appoint_time,
+      </if>
+      <if test="departmentType != null">
+        department_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="processingrecordId != null">
+        #{processingrecordId,jdbcType=INTEGER},
+      </if>
+      <if test="personnelId != null">
+        #{personnelId,jdbcType=BIGINT},
+      </if>
+      <if test="complaintId != null">
+        #{complaintId,jdbcType=VARCHAR},
+      </if>
+      <if test="processingcompletionTime != null">
+        #{processingcompletionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="emergencyDegree != null">
+        #{emergencyDegree,jdbcType=BIGINT},
+      </if>
+      <if test="processingState != null">
+        #{processingState,jdbcType=BIGINT},
+      </if>
+      <if test="forwardprocessingDepartment != null">
+        #{forwardprocessingDepartment,jdbcType=BIGINT},
+      </if>
+      <if test="processingDepartment != null">
+        #{processingDepartment,jdbcType=BIGINT},
+      </if>
+      <if test="processingRecord != null">
+        #{processingRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbackTime != null">
+        #{feedbackTime,jdbcType=BIGINT},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="processName != null">
+        #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="appointTime != null">
+        #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="departmentType != null">
+        #{departmentType,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.of.dfjr.pojo.ProcessingRecord">
+    update processing_record
+    <set>
+      <if test="processingrecordId != null">
+        processingrecord_id = #{processingrecordId,jdbcType=INTEGER},
+      </if>
+      <if test="personnelId != null">
+        personnel_id = #{personnelId,jdbcType=BIGINT},
+      </if>
+      <if test="complaintId != null">
+        complaint_id = #{complaintId,jdbcType=VARCHAR},
+      </if>
+      <if test="processingcompletionTime != null">
+        processingcompletion_time = #{processingcompletionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="emergencyDegree != null">
+        emergency_degree = #{emergencyDegree,jdbcType=BIGINT},
+      </if>
+      <if test="processingState != null">
+        processing_state = #{processingState,jdbcType=BIGINT},
+      </if>
+      <if test="forwardprocessingDepartment != null">
+        forwardprocessing_department = #{forwardprocessingDepartment,jdbcType=BIGINT},
+      </if>
+      <if test="processingDepartment != null">
+        processing_department = #{processingDepartment,jdbcType=BIGINT},
+      </if>
+      <if test="processingRecord != null">
+        processing_record = #{processingRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbackTime != null">
+        feedback_time = #{feedbackTime,jdbcType=BIGINT},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="processName != null">
+        process_name = #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="appointTime != null">
+        appoint_time = #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="departmentType != null">
+        department_type = #{departmentType,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

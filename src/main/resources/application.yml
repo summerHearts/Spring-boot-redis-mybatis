@@ -1,0 +1,60 @@
+spring:
+    datasource:
+        name: localhost2
+        url: jdbc:mysql://127.0.0.1:3306/cs_db?useUnicode=true&amp;characterEncoding=UTF-8
+        username: root
+        password: 123456
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+
+mybatis:
+   type-aliases-package: com.of.dfjr.pojo
+   mapper-locations: classpath:mapper/*.xml
+
+redis:
+    # redis数据库索引（默认为0），我们使用索引为3的数据库，避免和其他数据库冲突
+    database: 3
+    # redis服务器地址（默认为localhost）
+    host: localhost
+    # redis端口（默认为6379）
+    port: 6379
+    # redis访问密码（默认为空）
+    password:
+    # redis连接超时时间（单位为毫秒）
+    timeout: 0
+    # redis连接池配置
+    pool:
+      # 最大可用连接数（默认为8，负数表示无限）
+      max-active: 8
+      # 最大空闲连接数（默认为8，负数表示无限）
+      max-idle: 8
+      # 最小空闲连接数（默认为0，该值只有为正数才有作用）
+      min-idle: 0
+      # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+      max-wait: -1
+
+
+# primary数据库(master)分页插件  reasonable分页合理化  supportMethodsArguments是否支持接口参数来传递分页参数，默认false。
+# helperDialect：分页插件会自动检测当前的数据库链接，自动选择合适的分页方式。 你可以配置helperDialect属性来指定分页插件使用哪种方言
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+logging:
+  config: classpath:logback.xml

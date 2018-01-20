@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.of.dfjr.mapper.ComplaintInfoMapper">
+  <cache type="com.of.dfjr.redis.RedisCache"/>
+
+  <resultMap id="BaseResultMap" type="com.of.dfjr.pojo.ComplaintInfo">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="complaint_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="complaint_phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="complaint_business" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="customer_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="complaint_channel" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="complaintchannel_info" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="protocol_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="complaint_theme" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="complaint_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="complaint_detail" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emergency_degree" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="complaint_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="appoint_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="forwardprocessing_department" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="creater" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="modifier" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="modify_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="version" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="feedback_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="department_type" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="processing_state" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, complaint_id, complaint_phone, customer_name, complaint_business, customer_id, 
+    complaint_channel, complaintchannel_info, protocol_id, complaint_theme, complaint_type, 
+    complaint_detail, emergency_degree, complaint_date, appoint_time, forwardprocessing_department, 
+    creater, create_time, modifier, modify_time, version, feedback_time, department_type, 
+    processing_state
+  </sql>
+  <insert id="insertSelective" parameterType="com.of.dfjr.pojo.ComplaintInfo" useGeneratedKeys="true" keyProperty="id">
+    insert into complaint_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="complaintId != null">
+        complaint_id,
+      </if>
+      <if test="complaintPhone != null">
+        complaint_phone,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="complaintBusiness != null">
+        complaint_business,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="complaintChannel != null">
+        complaint_channel,
+      </if>
+      <if test="complaintchannelInfo != null">
+        complaintchannel_info,
+      </if>
+      <if test="protocolId != null">
+        protocol_id,
+      </if>
+      <if test="complaintTheme != null">
+        complaint_theme,
+      </if>
+      <if test="complaintType != null">
+        complaint_type,
+      </if>
+      <if test="complaintDetail != null">
+        complaint_detail,
+      </if>
+      <if test="emergencyDegree != null">
+        emergency_degree,
+      </if>
+      <if test="complaintDate != null">
+        complaint_date,
+      </if>
+      <if test="appointTime != null">
+        appoint_time,
+      </if>
+      <if test="forwardprocessingDepartment != null">
+        forwardprocessing_department,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="feedbackTime != null">
+        feedback_time,
+      </if>
+      <if test="departmentType != null">
+        department_type,
+      </if>
+      <if test="processingState != null">
+        processing_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="complaintId != null">
+        #{complaintId,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintPhone != null">
+        #{complaintPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintBusiness != null">
+        #{complaintBusiness,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="complaintChannel != null">
+        #{complaintChannel,jdbcType=BIGINT},
+      </if>
+      <if test="complaintchannelInfo != null">
+        #{complaintchannelInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolId != null">
+        #{protocolId,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintTheme != null">
+        #{complaintTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintType != null">
+        #{complaintType,jdbcType=BIGINT},
+      </if>
+      <if test="complaintDetail != null">
+        #{complaintDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyDegree != null">
+        #{emergencyDegree,jdbcType=BIGINT},
+      </if>
+      <if test="complaintDate != null">
+        #{complaintDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointTime != null">
+        #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forwardprocessingDepartment != null">
+        #{forwardprocessingDepartment,jdbcType=BIGINT},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="feedbackTime != null">
+        #{feedbackTime,jdbcType=INTEGER},
+      </if>
+      <if test="departmentType != null">
+        #{departmentType,jdbcType=INTEGER},
+      </if>
+      <if test="processingState != null">
+        #{processingState,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.of.dfjr.pojo.ComplaintInfo">
+    update complaint_info
+    <set>
+      <if test="complaintId != null">
+        complaint_id = #{complaintId,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintPhone != null">
+        complaint_phone = #{complaintPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintBusiness != null">
+        complaint_business = #{complaintBusiness,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="complaintChannel != null">
+        complaint_channel = #{complaintChannel,jdbcType=BIGINT},
+      </if>
+      <if test="complaintchannelInfo != null">
+        complaintchannel_info = #{complaintchannelInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolId != null">
+        protocol_id = #{protocolId,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintTheme != null">
+        complaint_theme = #{complaintTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintType != null">
+        complaint_type = #{complaintType,jdbcType=BIGINT},
+      </if>
+      <if test="complaintDetail != null">
+        complaint_detail = #{complaintDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyDegree != null">
+        emergency_degree = #{emergencyDegree,jdbcType=BIGINT},
+      </if>
+      <if test="complaintDate != null">
+        complaint_date = #{complaintDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointTime != null">
+        appoint_time = #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forwardprocessingDepartment != null">
+        forwardprocessing_department = #{forwardprocessingDepartment,jdbcType=BIGINT},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="feedbackTime != null">
+        feedback_time = #{feedbackTime,jdbcType=INTEGER},
+      </if>
+      <if test="departmentType != null">
+        department_type = #{departmentType,jdbcType=INTEGER},
+      </if>
+      <if test="processingState != null">
+        processing_state = #{processingState,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectAllComplaint" resultMap="BaseResultMap" >
+    SELECT  id, complaint_id, complaint_phone, customer_name, complaint_business, customer_id,
+    complaint_channel, complaintchannel_info, protocol_id, complaint_theme, complaint_type,
+    complaint_detail, emergency_degree, complaint_date, appoint_time, forwardprocessing_department,
+    creater, create_time, modifier, modify_time, version, feedback_time, department_type,
+    processing_state FROM  complaint_info
+  </select>
+
+</mapper>

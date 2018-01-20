@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>%date [%level] [%thread] %logger{80} [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/of-service-demo.log</File>
+        <encoder>
+            <pattern>%date [%level] [%thread] %logger{80} [%file : %line] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/of-customer-service.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1024KB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.hibernate.validator" level="INFO"/>
+    <logger name="org.xnio.nio" level="INFO"/>
+    <logger name="jdbc.connection" level="OFF"/>
+    <logger name="org.apache.zookeeper" level="WARN"/>
+    <logger name="com.alibaba.dubbo" level="INFO"/>
+    <logger name="springfox.documentation" level="INFO"/>
+    <root level="debug">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
